@@ -49,19 +49,19 @@ const ItemList: React.FC<ItemListProps> = ({ items }) => {
                 return (
                   <li
                     key={`itemContainer-${v4()}`}
-                    className="flex flex-row items-center justify-around gap-6 bg-cloud-white py-6 px-4 rounded-lg shadow-md"
+                    className="flex flex-col md:flex-row items-center justify-around gap-4 md:gap-6 bg-cloud-white py-4 px-2 md:py-6 md:px-4 rounded-lg shadow-md"
                   >
                     <img
                       src={item.imageUrl}
                       alt={item.title}
-                      className="w-28 h-28 object-cover rounded-md"
+                      className="w-32 h-32 md:w-28 md:h-28 object-cover rounded-md"
                     />
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-2 md:gap-4">
                       <h4 className="font-bold text-center">{item.title}</h4>
                       {item.description && (
                         <p className="text-center">{item.description}</p>
                       )}
-                      <div className="flex flex-row items-center gap-6">
+                      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
                         <div className="flex flex-col items-center justify-center">
                           <h6 className="text-graphite-grey">PRICE</h6>
                           <p className="bg-butter-yellow-light py-2 px-4 rounded-full text-center">
