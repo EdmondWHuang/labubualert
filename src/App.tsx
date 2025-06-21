@@ -53,7 +53,7 @@ function App() {
           <nav className="w-full md:w-11/12 h-1/12 flex flex-row items-center justify-evenly border-b border-divider-grey">
             <TopNavBar selectedTab={selectedTab} onTabChange={setSelectedTab} />
           </nav>
-          <main className="w-full md:w-11/12 h-11/12 flex-1 overflow-y-auto px-8 py-4">
+          <main className="w-full md:w-11/12 h-11/12 flex-1 px-8 py-4">
             {selectedTab === "upcomingReleases" && (
               <ItemList items={LIST_OF_UPCOMING_RELEASES} />
             )}
@@ -61,12 +61,13 @@ function App() {
               <ItemList items={LIST_OF_PAST_RELEASES} />
             )}
           </main>
+          <div className="w-full text-center text-sm text-gray-500">
+            This page is a work in progress. All content and data displayed here
+            are for demonstration purposes only and do not represent real or
+            actual information. Please check back later for updates and
+            finalized features.
+          </div>
         </div>
-      </div>
-      <div className="w-full text-center text-sm text-gray-500">
-        This page is a work in progress. All content and data displayed here are
-        for demonstration purposes only and do not represent real or actual
-        information. Please check back later for updates and finalized features.
       </div>
       <Analytics />
     </>
