@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { v4 } from "uuid";
+import CountdownTimer from "./CountdownTimer";
 
 const handleGroupItemsByDate = (items: ItemListProps["items"]) => {
   return items.reduce((groupsByDate, currentItem) => {
@@ -26,7 +27,7 @@ interface ItemListProps {
     price: number;
     releaseTime: string;
     description?: string;
-    imageUrl?: string;
+    imageUrl?: string | null | undefined;
   }[];
 }
 
@@ -52,7 +53,7 @@ const ItemList: React.FC<ItemListProps> = ({ items }) => {
                     className="flex flex-col md:flex-row items-center justify-around gap-4 md:gap-6 bg-cloud-white py-4 px-2 md:py-6 md:px-4 rounded-lg shadow-md"
                   >
                     <img
-                      src={item.imageUrl}
+                      src={item?.imageUrl || undefined}
                       alt={item.title}
                       className="w-32 h-32 md:w-28 md:h-28 object-cover rounded-md"
                     />
@@ -79,7 +80,8 @@ const ItemList: React.FC<ItemListProps> = ({ items }) => {
                                 : "bg-mint-cream-light"
                             } py-2 px-4 rounded-full text-center`}
                           >
-                            {item.releaseTime}
+                            {/* {item.releaseTime} */}
+                            <CountdownTimer target={item.releaseTime} />
                           </p>
                         </div>
                       </div>
