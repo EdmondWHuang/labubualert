@@ -11,8 +11,8 @@ const LIST_OF_UPCOMING_RELEASES = [
     title: "Upcoming Item 1",
     description: "Description for upcoming item 1",
     price: 100,
-    releaseTime: "2025-10-02T12:00:00Z",
-    imageUrl: "",
+    releaseTime: "2025-10-01T12:00:00Z",
+    imageUrl: null,
   },
   {
     id: "2",
@@ -20,7 +20,7 @@ const LIST_OF_UPCOMING_RELEASES = [
     description: "Description for upcoming item 2",
     price: 150,
     releaseTime: "2025-10-01T12:00:00Z",
-    imageUrl: "",
+    imageUrl: null,
   },
 ];
 
@@ -31,7 +31,7 @@ const LIST_OF_PAST_RELEASES = [
     description: "Description for past item 1",
     price: 80,
     releaseTime: "2023-09-15T12:00:00Z",
-    imageUrl: "",
+    imageUrl: null,
   },
   {
     id: "4",
@@ -39,7 +39,7 @@ const LIST_OF_PAST_RELEASES = [
     description: "Description for past item 2",
     price: 120,
     releaseTime: "2023-08-20T12:00:00Z",
-    imageUrl: "",
+    imageUrl: null,
   },
 ];
 
