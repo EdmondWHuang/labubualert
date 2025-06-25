@@ -4,20 +4,34 @@ interface CountdownTimerProps {
   target: string; // ISO date string
 }
 
-function getCountdown(target: string) {
+type CountdownTimeType = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+} | null;
+
+const getCountdown = (target: string): CountdownTimeType => {
   const now = new Date();
   const end = new Date(target);
   const diff = end.getTime() - now.getTime();
-  if (diff <= 0) return null;
+
+  if (diff <= 0) {
+    return null;
+  }
+
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
   const minutes = Math.floor((diff / (1000 * 60)) % 60);
   const seconds = Math.floor((diff / 1000) % 60);
+
   return { days, hours, minutes, seconds };
-}
+};
 
 const CountdownTimer: React.FC<CountdownTimerProps> = ({ target }) => {
-  const [timeRemaining, setTimeRemaining] = useState(getCountdown(target));
+  const [timeRemaining, setTimeRemaining] = useState<CountdownTimeType>(
+    getCountdown(target)
+  );
   const { days = 0, hours = 0, minutes = 0, seconds = 0 } = timeRemaining ?? {};
 
   useEffect(() => {
@@ -35,13 +49,11 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ target }) => {
 
   return (
     <>
-      {timeRemaining ? (
-        <span>
-          {`${days > 0 && `${days} Day: `}${hours} Hr: ${minutes} Min: ${seconds} Sec`}
-        </span>
-      ) : (
-        <span>
-          {new Date(target)
+      {timeRemaining
+        ? `${
+            days > 0 && `${days} Day: `
+          }${hours} Hr: ${minutes} Min: ${seconds} Sec`
+        : `${new Date(target)
             .toLocaleString("en-US", {
               month: "short",
               day: "numeric",
@@ -50,9 +62,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ target }) => {
               minute: "2-digit",
               hour12: false,
             })
-            .replace(/, (?=\d{2}:)/, " ")}
-        </span>
-      )}
+            .replace(/, (?=\d{2}:)/, " ")}`}
     </>
   );
 };

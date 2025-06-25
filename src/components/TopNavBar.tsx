@@ -7,7 +7,7 @@ interface TopNavBarProps {
 }
 
 const TopNavBar: React.FC<TopNavBarProps> = ({ selectedTab, onTabChange }) => {
-  const [listOfTabs] = useState(LIST_OF_NAV_TABS);
+  const [listOfTabs] = useState<typeof LIST_OF_NAV_TABS>(LIST_OF_NAV_TABS);
 
   return (
     <>

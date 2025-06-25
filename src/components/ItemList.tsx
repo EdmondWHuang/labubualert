@@ -32,7 +32,9 @@ interface ItemListProps {
 }
 
 const ItemList: React.FC<ItemListProps> = ({ items }) => {
-  const [groupedItems] = useState(handleGroupItemsByDate(items));
+  const [groupedItems] = useState<Record<string, ItemListProps["items"]>>(
+    handleGroupItemsByDate(items)
+  );
 
   return (
     <div>
@@ -80,7 +82,6 @@ const ItemList: React.FC<ItemListProps> = ({ items }) => {
                                 : "bg-mint-cream-light"
                             } py-2 px-4 rounded-full text-center`}
                           >
-                            {/* {item.releaseTime} */}
                             <CountdownTimer target={item.releaseTime} />
                           </p>
                         </div>

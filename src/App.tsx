@@ -44,7 +44,7 @@ const LIST_OF_PAST_RELEASES = [
 ];
 
 function App() {
-  const [selectedTab, setSelectedTab] = useState(DEFAULT_TAB);
+  const [selectedTab, setSelectedTab] = useState<string>(DEFAULT_TAB);
 
   return (
     <>
